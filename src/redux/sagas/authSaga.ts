@@ -33,13 +33,9 @@ function* login(action) {
 
 function* refreshToken() {
   try {
-    const refreshToken = getRefreshToken();
     const response = yield call(
       Api.get,
-      "https://frontend-exam.digitalfortress.dev/auth/refresh-accessToken",
-      {
-        params: { refreshToken },
-      }
+      "https://frontend-exam.digitalfortress.dev/auth/refresh-accessToken"
     );
     const { access_token, refresh_token } = response.data;
     setAccessToken(access_token);

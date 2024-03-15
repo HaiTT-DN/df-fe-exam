@@ -2,6 +2,7 @@ import { projectsConstant, SUCCESS, FAILURE, REQUEST } from "../constants";
 
 const initialState = {
   projects: [],
+  count: 0,
   error: null,
   loading: false,
 };
@@ -17,7 +18,8 @@ const projectsReducer = (state = initialState, action) => {
     case SUCCESS(projectsConstant.GET_PROJECTS):
       return {
         ...state,
-        projects: action.payload,
+        count: action.payload.count,
+        projects: action.payload.results,
         error: null,
       };
     case FAILURE(projectsConstant.GET_PROJECTS):

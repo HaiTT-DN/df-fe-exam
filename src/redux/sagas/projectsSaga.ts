@@ -14,7 +14,7 @@ function* getProjects() {
     );
     console.log(response.data);
 
-    // yield put(getProjectSuccess(data.results));
+    yield put(getProjectSuccess(response.data));
   } catch (error) {
     yield put(getProjectFailure(error.message));
   }
