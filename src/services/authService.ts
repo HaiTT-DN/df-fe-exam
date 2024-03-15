@@ -5,7 +5,6 @@ export const login = async (email, password) => {
   try {
     const response = await axios.post("/api/login", { email, password });
     const { token, refreshToken } = response.data;
-    // Set authentication tokens in cookies
     setAccessToken(token);
     setRefreshToken(refreshToken);
     return { token, refreshToken };

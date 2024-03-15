@@ -20,12 +20,14 @@ const projectsReducer = (state = initialState, action) => {
         ...state,
         count: action.payload.count,
         projects: action.payload.results,
+        loading: false,
         error: null,
       };
     case FAILURE(projectsConstant.GET_PROJECTS):
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     default:
       return state;

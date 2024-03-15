@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -10,13 +9,20 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          Welcome to my App
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 dark:bg-gray-900 bg-white">
+      <div className="max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+        <div className="flex flex-col items-center justify-center h-48 w-full">
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white uppercase mb-4">
+            Welcome to my App
+          </h1>
+          <button
+            onClick={() => toAuthentication()}
+            className="px-6 py-3 bg-blue-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-md hover:bg-blue-600 dark:hover:bg-gray-200 focus:outline-none"
+          >
+            Login
+          </button>
         </div>
       </div>
-      <button onClick={() => toAuthentication()}>Login</button>
     </main>
   );
 }

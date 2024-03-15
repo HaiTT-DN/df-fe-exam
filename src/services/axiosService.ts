@@ -1,15 +1,12 @@
-import {
-  getRefreshToken,
-  setAccessToken,
-  setRefreshToken,
-  tokenIsExpired,
-  getAccessToken,
-} from "@/services/cookieService";
+import { getAccessToken, getRefreshToken } from "@/services/cookieService";
 import axios from "axios";
 
 export const generateToken = () => ({
   Authorization: `Bearer ${getAccessToken()}`,
-  // todo
+});
+
+export const generateRefreshToken = () => ({
+  Authorization: `Bearer ${getRefreshToken()}`,
 });
 
 const defaultOptions = {};
@@ -21,6 +18,17 @@ function getApi(apiURL: string, options: any = {}) {
     headers: {
       ...options.headers,
       ...generateToken(),
+    },
+  });
+}
+
+function getRefreshTokenApi(apiURL: string, options: any = {}) {
+  return axios.get(apiURL, {
+    ...defaultOptions,
+    ...options,
+    headers: {
+      ...options.headers,
+      ...generateRefreshToken(),
     },
   });
 }
@@ -38,6 +46,7 @@ function postApi(apiURL: string, data: any, options: any = {}) {
 
 const Api = {
   get: getApi,
+  refreshToken: getRefreshTokenApi,
   post: postApi,
 };
 

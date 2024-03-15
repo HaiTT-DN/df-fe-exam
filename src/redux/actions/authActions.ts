@@ -19,9 +19,8 @@ export const refreshTokenRequest = () => ({
   type: REQUEST(authConstants.REFRESH_TOKEN),
 });
 
-export const refreshTokenSuccess = (token) => ({
+export const refreshTokenSuccess = () => ({
   type: SUCCESS(authConstants.REFRESH_TOKEN),
-  payload: token,
 });
 
 export const refreshTokenFailure = (error) => ({

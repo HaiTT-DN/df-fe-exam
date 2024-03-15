@@ -1,6 +1,7 @@
 import { wrapper } from "@/redux/store";
 import { connect } from "react-redux";
 import "@/app/globals.css";
+import "@/assets/scss/main.scss";
 
 function App({ Component, pageProps }) {
   return <Component {...pageProps} />;

@@ -8,7 +8,6 @@ import {
 } from "../actions/authActions";
 import { authConstants, REQUEST } from "../constants";
 import {
-  getRefreshToken,
   setAccessToken,
   setRefreshToken,
   tokenIsExpired,
@@ -34,13 +33,13 @@ function* login(action) {
 function* refreshToken() {
   try {
     const response = yield call(
-      Api.get,
-      "https://frontend-exam.digitalfortress.dev/auth/refresh-accessToken"
+      Api.refreshToken,
+      "https://frontend-exam.digitalfortress.dev/auth/refresh-token"
     );
     const { access_token, refresh_token } = response.data;
     setAccessToken(access_token);
     setRefreshToken(refresh_token);
-    yield put(refreshTokenSuccess(access_token));
+    yield put(refreshTokenSuccess());
   } catch (error) {
     yield put(refreshTokenFailure(error.message));
   }
@@ -50,8 +49,6 @@ function* watchTokenExpiry() {
   while (true) {
     yield delay(60000);
     if (tokenIsExpired()) {
-      setAccessToken("");
-      setRefreshToken("");
       yield put(refreshTokenRequest());
     }
   }
