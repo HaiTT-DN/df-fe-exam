@@ -1,0 +1,14 @@
+{
+  "auth": "Authentication",
+  "welcome": "Welcome to My App",
+  "login": "Login",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "theme_select": "Theme select: ",
+  "dark": "Dark",
+  "light": "Light",
+  "name": "Name",
+  "domain": "Domain",
+  "last_accessed": "Last Accessed"
+}

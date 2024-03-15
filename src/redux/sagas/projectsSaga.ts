@@ -12,7 +12,6 @@ function* getProjects() {
       Api.get,
       "https://frontend-exam.digitalfortress.dev/projects"
     );
-    console.log(response.data);
 
     yield put(getProjectSuccess(response.data));
   } catch (error) {

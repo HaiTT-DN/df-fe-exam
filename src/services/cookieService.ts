@@ -10,7 +10,7 @@ const getAccessToken = () => {
   return cookies.get("authToken");
 };
 
-const removeAuthToken = () => {
+const removeAccessToken = () => {
   cookies.remove("authToken", { path: "/" });
 };
 
@@ -58,7 +58,7 @@ const parseJwt = (token) => {
 export {
   setAccessToken,
   getAccessToken,
-  removeAuthToken,
+  removeAccessToken,
   setRefreshToken,
   getRefreshToken,
   removeRefreshToken,

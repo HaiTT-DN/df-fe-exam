@@ -1,0 +1,14 @@
+{
+  "auth": "Đăng Nhập",
+  "welcome": "Chào mừng bạn",
+  "login": "Đăng Nhập",
+  "logout": "Đăng Xuất",
+  "email": "Email",
+  "password": "Mật Khẩu",
+  "theme_select": "Chọn chủ đề: ",
+  "dark": "Tối",
+  "light": "Sáng",
+  "name": "Tên",
+  "domain": "Lĩnh vực",
+  "last_accessed": "Truy cập cuối"
+}

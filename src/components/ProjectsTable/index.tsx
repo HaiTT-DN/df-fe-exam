@@ -1,4 +1,5 @@
 import { Project } from "@/types/Projects";
+import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import Pagination from "../Pagination";
 
@@ -12,6 +13,7 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({
   itemsPerPage,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { t } = useTranslation();
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -33,13 +35,13 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({
                 ID
               </th>
               <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                Name
+                {t("name")}
               </th>
               <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                Domain
+                {t("domain")}
               </th>
               <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                Last Accessed
+                {t("last_accessed")}
               </th>
             </tr>
           </thead>
